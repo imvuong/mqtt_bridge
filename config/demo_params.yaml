@@ -9,6 +9,11 @@ mqtt:
 #serializer: json:dumps
 #deserializer: json:loads
 bridge:
+  # joint_states
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: sensor_msgs.msg:JointState
+    topic_from: /joint_states
+    topic_to: joint_states
   # ping pong
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: std_msgs.msg:Bool
